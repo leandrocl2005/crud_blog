@@ -1,0 +1,8 @@
+{% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    <p>
+		  <a href="{% url 'post_delete' post.id %}">
+					Deletar
+			</a>
+    </p>
+{% endfor %}

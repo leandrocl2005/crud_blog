@@ -1,0 +1,13 @@
+<h1>Enviando dados</h1>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <ul>
+    Autor:
+    <li>{{ form.autor }}</li>
+    Título
+    <li>{{ form.title }}</li>
+    Texto
+    <li>{{ form.texto }}</li>
+  </ul>
+  <button type="submit">Salvar</button>
+</form>
