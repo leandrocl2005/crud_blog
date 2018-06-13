@@ -6,6 +6,7 @@ class Post(models.Model):
     autor=models.CharField(max_length=30)
     title=models.CharField(max_length=30)
     texto=models.TextField()
+    pic=models.ImageField(upload_to='posts_pics',null=True,blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 

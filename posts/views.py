@@ -11,7 +11,7 @@ def post_list(request):
 @login_required
 def post_create(request):
   if request.method == "POST":
-    form = PostForm(request.POST)
+    form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
       post = form.save(commit=False)
       post.published_date=timezone.now()
