@@ -7,9 +7,9 @@
 				<img src="../media/{{post.pic}}" alt="{{post.slug}}" class="img-responsive">
 			</a>
 		</figure>
-		<span class="fh5co-meta"><a href="{% url 'list_post' post.id %}">{{post.title}}</a></span>
+		<span class="fh5co-meta"><a href="{% url 'list_post' post.id %}">{{post.slug}}</a></span>
 		<h2 class="fh5co-article-title">
-			<a href="{% url 'list_post' post.id %}">{{post.texto|truncatechars:40}}</a>
+			<a href="{% url 'list_post' post.id %}">{{post.title}}</a>
 		</h2>
 		<span class="fh5co-meta fh5co-date">{{post.published_date|date:'F d, o'}}</span>
 	</article>
