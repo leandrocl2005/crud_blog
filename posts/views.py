@@ -8,6 +8,11 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request,'home/index.html',{'posts': posts})
 
+def list_post(request, id):
+    post = get_object_or_404(Post, pk=id)
+    return render(request,'home/single.html',{'post':post})
+    
+
 @login_required
 def post_create(request):
   if request.method == "POST":
