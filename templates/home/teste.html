@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chart</title>
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="../../statics/css/animate.css">
+    <!-- Icomoon -->
+    <link rel="stylesheet" href="../../statics/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="../../statics/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../statics/css/style.css">
+
+    <script src="../../statics/js/Chart.bundle.js"></script>
+  </head>
+
+  <body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                    <figure>
+                        <canvas id="myChart"></canvas>
+                    </figure>
+                <article/>
+
+                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                <figure>
+                    <canvas id="productsChart" width="100" height="100"></canvas>
+                </figure>
+                <article/>
+            </div>
+        </div>
+
+<!-- type: polarArea, bar, line, radar, pie, doughnut -->
+<script>
+var ctx = document.getElementById("productsChart");
+var names = JSON.parse('{{ names|safe }}');
+var prices = JSON.parse('{{ prices|safe }}');
+var productsChart = new Chart(ctx, {
+    type: 'pie', 
+    data: {
+        labels: names,
+        datasets: [{
+            label: 'Produtos',
+            data: prices,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    datasets: [{
+      label: 'apples',
+      data: [12, 19, 3, 17, 6, 3, 7],
+      backgroundColor: "rgba(153,255,51,0.4)"
+    }, {
+      label: 'oranges',
+      data: [2, 29, 5, 5, 2, 3, 10],
+      backgroundColor: "rgba(255,153,0,0.4)"
+    }]
+  },
+  options: {
+  title: {
+    display: true,
+    text: 'Custom Chart Title'
+  }
+}
+});
+var labels = {
+  "apples": true,
+  "oranges": true
+};
+
+var caption = document.getElementById("caption");
+
+var update_caption = function(legend) {
+  labels[legend.text] = legend.hidden;
+
+  var selected = Object.keys(labels).filter(function(key) {
+    return labels[key];
+  });
+
+  var text = selected.length ? selected.join(" & ") : "nothing";
+
+  caption.innerHTML = "The above chart displays " + text;
+};
+</script>
+
+  </body>
+</html>
+
+
+
+
+
+<script src="../../statics/js/Chart.bundle.js"></script>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>

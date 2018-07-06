@@ -1,0 +1,164 @@
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>
+		DMAT-UFTM
+	</title>
+	<style>
+		div {
+		    border-radius: 25px;
+		    background-color: #d2d2d2;
+		    padding: 20px;
+		    width: 40%;
+		    font-weight: bold;
+		    display:table;
+		    float:left;
+		    margin:20px;
+		}
+		input[type=text] {
+		    width: 30%;
+		    padding: 6px 10px;
+		    margin: 8px 0;
+		    display: inline-block;
+		    border: 1px solid #ccc;
+		    border-radius: 50px;
+		    box-sizing: border-box;
+		}
+		input[type=button] {
+		    width: 23%;
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 7px 10px;
+		    margin: 8px 0;
+		    border: none;
+		    border-radius: 50px;
+		    cursor: pointer;
+		}
+		input[type=button]:hover {
+		    background-color: #45a049;
+		}
+		h4 {
+			text-align: center;
+			font-family: "Times New Roman", Times, serif;			
+		}
+	</style>
+
+</head>
+
+<body>
+	<script>
+		function enviar1(){
+			ND = parseFloat(document.form_1s2016.num_disciplinas.value);
+			NA = parseFloat(document.form_1s2016.num_alunos.value);
+			CS = parseFloat(document.form_1s2016.carga_horaria.value);
+			document.form_1s2016.total1.value = calcula(CS, ND, NA);
+		}
+		function enviar2(){
+			ND = parseFloat(document.form_2s2016.num_disciplinas.value);
+			NA = parseFloat(document.form_2s2016.num_alunos.value);
+			CS = parseFloat(document.form_2s2016.carga_horaria.value);
+			document.form_2s2016.total2.value = calcula(CS, ND, NA);
+		}
+		function enviar3(){
+			ND = parseFloat(document.form_1s2017.num_disciplinas.value);
+			NA = parseFloat(document.form_1s2017.num_alunos.value);
+			CS = parseFloat(document.form_1s2017.carga_horaria.value);
+			document.form_1s2017.total3.value = calcula(CS, ND, NA);
+		}
+		function enviar4(){
+			ND = parseFloat(document.form_2s2017.num_disciplinas.value);
+			NA = parseFloat(document.form_2s2017.num_alunos.value);
+			CS = parseFloat(document.form_2s2017.carga_horaria.value);
+			document.form_2s2017.total4.value = calcula(CS, ND, NA);
+		}
+		function enviar5(){
+			x = parseFloat(document.form_1s2016.total1.value);
+			y = parseFloat(document.form_2s2016.total2.value);
+			z = parseFloat(document.form_1s2017.total3.value);
+			w = parseFloat(document.form_2s2017.total4.value);
+			totalFinal = x+y+z+w;
+			document.form_final.total5.value = totalFinal;
+		}
+		function calcula(CS, ND, NA){
+			return CS*( 1 + (ND-1)*0.25 + NA*0.05/65.0 );
+		}
+	</script>
+<div>
+	<form name='form_1s2016'>
+		<hr/>
+		<h4>2º Semestre 2016</h4>
+		<hr/>
+		Número de disciplinas diferentes:<br/>
+		<input type='text' name='num_disciplinas' placeholder='0'><br/>
+		Número total de alunos:<br/>
+		<input type='text' name='num_alunos' placeholder='0'><br/>
+		Carga horária semanal total:<br/>
+		<input type='text' name='carga_horaria' placeholder='0'><br/>
+		<input type="button" value="Enviar" onclick="javascript:enviar1();"><br/>
+		<hr/>
+		Total no primeiro semestre:<br/>
+		<input id='test1' type='text' placeholder='0' name='total1'><br/>
+	</form>
+</div>
+<div>
+	<form name='form_2s2016'>
+		<hr/>
+		<h4>1º Semestre 2017</h4>
+		<hr/>
+		Número de disciplinas diferentes:<br/>
+		<input type='text' name='num_disciplinas' placeholder='0'><br/>
+		Número total de alunos:<br/>
+		<input type='text' name='num_alunos' placeholder='0'><br/>
+		Carga horária semanal total:<br/>
+		<input type='text' name='carga_horaria' placeholder='0'><br/>
+		<input type="button" value="Enviar" onclick="javascript:enviar2();"><br/>
+		<hr/>
+		Total no primeiro semestre:<br/>
+		<input id='test2' type='text' placeholder='0' name='total2'><br/>
+	</form>
+</div>
+<div>
+	<form name='form_1s2017'>
+		<hr/>
+		<h4>2º Semestre 2017</h4>
+		<hr/>
+		Número de disciplinas diferentes:<br/>
+		<input type='text' name='num_disciplinas' placeholder='0'><br/>
+		Número total de alunos:<br/>
+		<input type='text' name='num_alunos' placeholder='0'><br/>
+		Carga horária semanal total:<br/>
+		<input type='text' name='carga_horaria' placeholder='0'><br/>
+		<input type="button" value="Enviar" onclick="javascript:enviar3();"><br/>
+		<hr/>
+		Total no primeiro semestre:<br/>
+		<input id='test3' type='text' placeholder='0' name='total3'><br/>
+	</form>
+</div>
+<div>
+	<form name='form_2s2017'>
+		<hr/>
+		<h4>1º Semestre 2018</h4>
+		<hr/>
+		Número de disciplinas diferentes:<br/>
+		<input type='text' name='num_disciplinas' placeholder='0'><br/>
+		Número total de alunos:<br/>
+		<input type='text' name='num_alunos' placeholder='0'><br/>
+		Carga horária semanal total:<br/>
+		<input type='text' name='carga_horaria' placeholder='0'><br/>
+		<input type="button" value="Enviar" onclick="javascript:enviar4();"><br/>
+		<hr/>
+		Total no primeiro semestre:<br/>
+		<input id='test4' type='text' placeholder='0' name='total4'><br/>
+	</form>
+</div>
+<div>
+	<form name='form_final'>
+		<hr/>
+		<h4>Pontuação final</h4>
+		<hr/>
+		<input id='test5' type='text' placeholder='0' name='total5'><br/>
+		<input type="button" value="Calcular" onclick="javascript:enviar5();"><br/>
+	</form>
+</div>
+</body>
+</html>
